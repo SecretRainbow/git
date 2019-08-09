@@ -55,12 +55,15 @@ struct TableStruct_test_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_test_2eproto;
+namespace itcast {
 class Person;
 class PersonDefaultTypeInternal;
 extern PersonDefaultTypeInternal _Person_default_instance_;
+}  // namespace itcast
 PROTOBUF_NAMESPACE_OPEN
-template<> ::Person* Arena::CreateMaybeMessage<::Person>(Arena*);
+template<> ::itcast::Person* Arena::CreateMaybeMessage<::itcast::Person>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
+namespace itcast {
 
 enum MyColor : int {
   Red = 0,
@@ -91,7 +94,7 @@ inline bool MyColor_Parse(
 // ===================================================================
 
 class Person :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Person) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:itcast.Person) */ {
  public:
   Person();
   virtual ~Person();
@@ -175,7 +178,7 @@ class Person :
   void InternalSwap(Person* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Person";
+    return "itcast.Person";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -241,13 +244,13 @@ class Person :
   ::PROTOBUF_NAMESPACE_ID::int32 age() const;
   void set_age(::PROTOBUF_NAMESPACE_ID::int32 value);
 
-  // .MyColor color = 5;
+  // .itcast.MyColor color = 5;
   void clear_color();
   static const int kColorFieldNumber = 5;
-  ::MyColor color() const;
-  void set_color(::MyColor value);
+  ::itcast::MyColor color() const;
+  void set_color(::itcast::MyColor value);
 
-  // @@protoc_insertion_point(class_scope:Person)
+  // @@protoc_insertion_point(class_scope:itcast.Person)
  private:
   class HasBitSetters;
 
@@ -276,13 +279,13 @@ inline void Person::clear_id() {
   id_ = 0;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Person::id() const {
-  // @@protoc_insertion_point(field_get:Person.id)
+  // @@protoc_insertion_point(field_get:itcast.Person.id)
   return id_;
 }
 inline void Person::set_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:Person.id)
+  // @@protoc_insertion_point(field_set:itcast.Person.id)
 }
 
 // repeated bytes name = 2;
@@ -293,60 +296,60 @@ inline void Person::clear_name() {
   name_.Clear();
 }
 inline const std::string& Person::name(int index) const {
-  // @@protoc_insertion_point(field_get:Person.name)
+  // @@protoc_insertion_point(field_get:itcast.Person.name)
   return name_.Get(index);
 }
 inline std::string* Person::mutable_name(int index) {
-  // @@protoc_insertion_point(field_mutable:Person.name)
+  // @@protoc_insertion_point(field_mutable:itcast.Person.name)
   return name_.Mutable(index);
 }
 inline void Person::set_name(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:Person.name)
+  // @@protoc_insertion_point(field_set:itcast.Person.name)
   name_.Mutable(index)->assign(value);
 }
 inline void Person::set_name(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:Person.name)
+  // @@protoc_insertion_point(field_set:itcast.Person.name)
   name_.Mutable(index)->assign(std::move(value));
 }
 inline void Person::set_name(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   name_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:Person.name)
+  // @@protoc_insertion_point(field_set_char:itcast.Person.name)
 }
 inline void Person::set_name(int index, const void* value, size_t size) {
   name_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:Person.name)
+  // @@protoc_insertion_point(field_set_pointer:itcast.Person.name)
 }
 inline std::string* Person::add_name() {
-  // @@protoc_insertion_point(field_add_mutable:Person.name)
+  // @@protoc_insertion_point(field_add_mutable:itcast.Person.name)
   return name_.Add();
 }
 inline void Person::add_name(const std::string& value) {
   name_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:Person.name)
+  // @@protoc_insertion_point(field_add:itcast.Person.name)
 }
 inline void Person::add_name(std::string&& value) {
   name_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:Person.name)
+  // @@protoc_insertion_point(field_add:itcast.Person.name)
 }
 inline void Person::add_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   name_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:Person.name)
+  // @@protoc_insertion_point(field_add_char:itcast.Person.name)
 }
 inline void Person::add_name(const void* value, size_t size) {
   name_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:Person.name)
+  // @@protoc_insertion_point(field_add_pointer:itcast.Person.name)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 Person::name() const {
-  // @@protoc_insertion_point(field_list:Person.name)
+  // @@protoc_insertion_point(field_list:itcast.Person.name)
   return name_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 Person::mutable_name() {
-  // @@protoc_insertion_point(field_mutable_list:Person.name)
+  // @@protoc_insertion_point(field_mutable_list:itcast.Person.name)
   return &name_;
 }
 
@@ -355,39 +358,39 @@ inline void Person::clear_sex() {
   sex_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& Person::sex() const {
-  // @@protoc_insertion_point(field_get:Person.sex)
+  // @@protoc_insertion_point(field_get:itcast.Person.sex)
   return sex_.GetNoArena();
 }
 inline void Person::set_sex(const std::string& value) {
   
   sex_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Person.sex)
+  // @@protoc_insertion_point(field_set:itcast.Person.sex)
 }
 inline void Person::set_sex(std::string&& value) {
   
   sex_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:Person.sex)
+  // @@protoc_insertion_point(field_set_rvalue:itcast.Person.sex)
 }
 inline void Person::set_sex(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   sex_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Person.sex)
+  // @@protoc_insertion_point(field_set_char:itcast.Person.sex)
 }
 inline void Person::set_sex(const void* value, size_t size) {
   
   sex_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Person.sex)
+  // @@protoc_insertion_point(field_set_pointer:itcast.Person.sex)
 }
 inline std::string* Person::mutable_sex() {
   
-  // @@protoc_insertion_point(field_mutable:Person.sex)
+  // @@protoc_insertion_point(field_mutable:itcast.Person.sex)
   return sex_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* Person::release_sex() {
-  // @@protoc_insertion_point(field_release:Person.sex)
+  // @@protoc_insertion_point(field_release:itcast.Person.sex)
   
   return sex_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -398,7 +401,7 @@ inline void Person::set_allocated_sex(std::string* sex) {
     
   }
   sex_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sex);
-  // @@protoc_insertion_point(field_set_allocated:Person.sex)
+  // @@protoc_insertion_point(field_set_allocated:itcast.Person.sex)
 }
 
 // int32 age = 4;
@@ -406,27 +409,27 @@ inline void Person::clear_age() {
   age_ = 0;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Person::age() const {
-  // @@protoc_insertion_point(field_get:Person.age)
+  // @@protoc_insertion_point(field_get:itcast.Person.age)
   return age_;
 }
 inline void Person::set_age(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   age_ = value;
-  // @@protoc_insertion_point(field_set:Person.age)
+  // @@protoc_insertion_point(field_set:itcast.Person.age)
 }
 
-// .MyColor color = 5;
+// .itcast.MyColor color = 5;
 inline void Person::clear_color() {
   color_ = 0;
 }
-inline ::MyColor Person::color() const {
-  // @@protoc_insertion_point(field_get:Person.color)
-  return static_cast< ::MyColor >(color_);
+inline ::itcast::MyColor Person::color() const {
+  // @@protoc_insertion_point(field_get:itcast.Person.color)
+  return static_cast< ::itcast::MyColor >(color_);
 }
-inline void Person::set_color(::MyColor value) {
+inline void Person::set_color(::itcast::MyColor value) {
   
   color_ = value;
-  // @@protoc_insertion_point(field_set:Person.color)
+  // @@protoc_insertion_point(field_set:itcast.Person.color)
 }
 
 #ifdef __GNUC__
@@ -435,13 +438,14 @@ inline void Person::set_color(::MyColor value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace itcast
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::MyColor> : ::std::true_type {};
+template <> struct is_proto_enum< ::itcast::MyColor> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::MyColor>() {
-  return ::MyColor_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::itcast::MyColor>() {
+  return ::itcast::MyColor_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

@@ -4,7 +4,7 @@
 #include<string>
 #include"test.pb.h"
 using namespace std;
-
+using namespace itcast;
 int main(int argc, char* argv[])
 {
 	//–Ú¡–ªØ
