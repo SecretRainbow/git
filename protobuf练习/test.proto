@@ -1,0 +1,17 @@
+syntax="proto3";
+enum MyColor
+{
+	Red=0; //protobuf中，枚举的第一个值必须是0
+	Green=3;
+	Blue=5;
+}
+message Person
+{
+	int32 id=1;
+	repeated bytes name=2;  //name可以重复 ，那name就成了数组，元素类型是bytes
+							//这个“数组”元素个数没有上限
+	bytes sex =3;
+	int32 age = 4;
+	MyColor color=5;
+}
+
