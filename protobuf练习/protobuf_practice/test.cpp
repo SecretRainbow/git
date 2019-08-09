@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
 	p.set_name(1, "艾斯"); //此处是把数组的1元素设置为"艾斯"
 	p.set_sex ("man");
 	p.set_age(18);
+	p.set_color(MyColor::Blue);
 	//实现序列化
 	string output;
 	p.SerializeToString(&output);
@@ -32,7 +33,7 @@ int main(int argc, char* argv[])
 	{
 		cout<< "name:"<<i <<"->  "<< p1.name(i)<< endl;
 	}
-	cout<< "sex:" << p1.sex() << "age" << p1.age() << endl;
+	cout<< "sex:" << p1.sex() <<endl<< "age" << p1.age() << endl<<"color:"<<p1.color()<<endl;
 	system("pause");
 	return 0;
 }

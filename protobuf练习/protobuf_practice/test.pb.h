@@ -31,6 +31,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -61,6 +62,32 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::Person* Arena::CreateMaybeMessage<::Person>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
+enum MyColor : int {
+  Red = 0,
+  Green = 3,
+  Blue = 5,
+  MyColor_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  MyColor_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool MyColor_IsValid(int value);
+constexpr MyColor MyColor_MIN = Red;
+constexpr MyColor MyColor_MAX = Blue;
+constexpr int MyColor_ARRAYSIZE = MyColor_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MyColor_descriptor();
+template<typename T>
+inline const std::string& MyColor_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, MyColor>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function MyColor_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    MyColor_descriptor(), enum_t_value);
+}
+inline bool MyColor_Parse(
+    const std::string& name, MyColor* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<MyColor>(
+    MyColor_descriptor(), name, value);
+}
 // ===================================================================
 
 class Person :
@@ -214,6 +241,12 @@ class Person :
   ::PROTOBUF_NAMESPACE_ID::int32 age() const;
   void set_age(::PROTOBUF_NAMESPACE_ID::int32 value);
 
+  // .MyColor color = 5;
+  void clear_color();
+  static const int kColorFieldNumber = 5;
+  ::MyColor color() const;
+  void set_color(::MyColor value);
+
   // @@protoc_insertion_point(class_scope:Person)
  private:
   class HasBitSetters;
@@ -223,6 +256,7 @@ class Person :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sex_;
   ::PROTOBUF_NAMESPACE_ID::int32 id_;
   ::PROTOBUF_NAMESPACE_ID::int32 age_;
+  int color_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_test_2eproto;
 };
@@ -381,12 +415,36 @@ inline void Person::set_age(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:Person.age)
 }
 
+// .MyColor color = 5;
+inline void Person::clear_color() {
+  color_ = 0;
+}
+inline ::MyColor Person::color() const {
+  // @@protoc_insertion_point(field_get:Person.color)
+  return static_cast< ::MyColor >(color_);
+}
+inline void Person::set_color(::MyColor value) {
+  
+  color_ = value;
+  // @@protoc_insertion_point(field_set:Person.color)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 
 // @@protoc_insertion_point(namespace_scope)
 
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::MyColor> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MyColor>() {
+  return ::MyColor_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
