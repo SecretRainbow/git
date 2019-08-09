@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-master分支文件
-=======
-mywork分支文件
->>>>>>> mywork
