@@ -4,7 +4,9 @@
 #include<string>
 #include"test.pb.h"
 using namespace std;
+using namespace myinfo;
 using namespace itcast;
+
 int main(int argc, char* argv[])
 {
 	//序列化
@@ -20,6 +22,12 @@ int main(int argc, char* argv[])
 	p.set_sex ("man");
 	p.set_age(18);
 	p.set_color(MyColor::Blue);
+		//设置info变量信息，间接设置
+		//1.获取p对象中的info子对象的地址
+	Info* in = p.mutable_info();
+		//2.通过In指针修改对象中的数据
+	in->set_num(666);
+	in->set_infomation("航海王");
 	//实现序列化
 	string output;
 	p.SerializeToString(&output);
@@ -34,6 +42,11 @@ int main(int argc, char* argv[])
 		cout<< "name:"<<i <<"->  "<< p1.name(i)<< endl;
 	}
 	cout<< "sex:" << p1.sex() <<endl<< "age" << p1.age() << endl<<"color:"<<p1.color()<<endl;
+		//读取info信息
+	Info in1 = p1.info(); //得到p1中的info数据
+	cout << "info的num: " << in1.num() << endl << "info的information: " << in1.infomation() << endl;
+
+
 	system("pause");
 	return 0;
 }

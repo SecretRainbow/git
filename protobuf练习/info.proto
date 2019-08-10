@@ -1,0 +1,8 @@
+syntax="proto3";
+package myinfo;//想被别的proto文件引用，就必须定义一个包
+message Info
+{
+	int32 num=1;
+	string infomation=2;
+}
+

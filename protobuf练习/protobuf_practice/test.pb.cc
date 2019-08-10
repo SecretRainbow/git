@@ -15,6 +15,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_info_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Info_info_2eproto;
 namespace itcast {
 class PersonDefaultTypeInternal {
  public:
@@ -32,8 +33,9 @@ static void InitDefaultsscc_info_Person_test_2eproto() {
   ::itcast::Person::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Person_test_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_Person_test_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Person_test_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_Person_test_2eproto}, {
+      &scc_info_Info_info_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_test_2eproto[1];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_test_2eproto[1];
@@ -50,6 +52,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_test_2eproto::offsets[] PROTOB
   PROTOBUF_FIELD_OFFSET(::itcast::Person, sex_),
   PROTOBUF_FIELD_OFFSET(::itcast::Person, age_),
   PROTOBUF_FIELD_OFFSET(::itcast::Person, color_),
+  PROTOBUF_FIELD_OFFSET(::itcast::Person, info_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::itcast::Person)},
@@ -60,13 +63,15 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_test_2eproto[] =
-  "\n\ntest.proto\022\006itcast\"\\\n\006Person\022\n\n\002id\030\001 \001"
-  "(\005\022\014\n\004name\030\002 \003(\014\022\013\n\003sex\030\003 \001(\014\022\013\n\003age\030\004 \001"
-  "(\005\022\036\n\005color\030\005 \001(\0162\017.itcast.MyColor*\'\n\007My"
+  "\n\ntest.proto\022\006itcast\032\ninfo.proto\"x\n\006Pers"
+  "on\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \003(\014\022\013\n\003sex\030\003 \001("
+  "\014\022\013\n\003age\030\004 \001(\005\022\036\n\005color\030\005 \001(\0162\017.itcast.M"
+  "yColor\022\032\n\004info\030\006 \001(\0132\014.myinfo.Info*\'\n\007My"
   "Color\022\007\n\003Red\020\000\022\t\n\005Green\020\003\022\010\n\004Blue\020\005b\006pro"
   "to3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_test_2eproto_deps[1] = {
+  &::descriptor_table_info_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_test_2eproto_sccs[1] = {
   &scc_info_Person_test_2eproto.base,
@@ -74,8 +79,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_tes
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_test_2eproto_once;
 static bool descriptor_table_test_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_test_2eproto = {
-  &descriptor_table_test_2eproto_initialized, descriptor_table_protodef_test_2eproto, "test.proto", 163,
-  &descriptor_table_test_2eproto_once, descriptor_table_test_2eproto_sccs, descriptor_table_test_2eproto_deps, 1, 0,
+  &descriptor_table_test_2eproto_initialized, descriptor_table_protodef_test_2eproto, "test.proto", 203,
+  &descriptor_table_test_2eproto_once, descriptor_table_test_2eproto_sccs, descriptor_table_test_2eproto_deps, 1, 1,
   schemas, file_default_instances, TableStruct_test_2eproto::offsets,
   file_level_metadata_test_2eproto, 1, file_level_enum_descriptors_test_2eproto, file_level_service_descriptors_test_2eproto,
 };
@@ -102,17 +107,31 @@ bool MyColor_IsValid(int value) {
 // ===================================================================
 
 void Person::InitAsDefaultInstance() {
+  ::itcast::_Person_default_instance_._instance.get_mutable()->info_ = const_cast< ::myinfo::Info*>(
+      ::myinfo::Info::internal_default_instance());
 }
 class Person::HasBitSetters {
  public:
+  static const ::myinfo::Info& info(const Person* msg);
 };
 
+const ::myinfo::Info&
+Person::HasBitSetters::info(const Person* msg) {
+  return *msg->info_;
+}
+void Person::clear_info() {
+  if (GetArenaNoVirtual() == nullptr && info_ != nullptr) {
+    delete info_;
+  }
+  info_ = nullptr;
+}
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Person::kIdFieldNumber;
 const int Person::kNameFieldNumber;
 const int Person::kSexFieldNumber;
 const int Person::kAgeFieldNumber;
 const int Person::kColorFieldNumber;
+const int Person::kInfoFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Person::Person()
@@ -129,6 +148,11 @@ Person::Person(const Person& from)
   if (from.sex().size() > 0) {
     sex_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.sex_);
   }
+  if (from.has_info()) {
+    info_ = new ::myinfo::Info(*from.info_);
+  } else {
+    info_ = nullptr;
+  }
   ::memcpy(&id_, &from.id_,
     static_cast<size_t>(reinterpret_cast<char*>(&color_) -
     reinterpret_cast<char*>(&id_)) + sizeof(color_));
@@ -138,9 +162,9 @@ Person::Person(const Person& from)
 void Person::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Person_test_2eproto.base);
   sex_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&id_, 0, static_cast<size_t>(
+  ::memset(&info_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&color_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(color_));
+      reinterpret_cast<char*>(&info_)) + sizeof(color_));
 }
 
 Person::~Person() {
@@ -150,6 +174,7 @@ Person::~Person() {
 
 void Person::SharedDtor() {
   sex_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete info_;
 }
 
 void Person::SetCachedSize(int size) const {
@@ -169,6 +194,10 @@ void Person::Clear() {
 
   name_.Clear();
   sex_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && info_ != nullptr) {
+    delete info_;
+  }
+  info_ = nullptr;
   ::memset(&id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&color_) -
       reinterpret_cast<char*>(&id_)) + sizeof(color_));
@@ -222,6 +251,13 @@ const char* Person::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
           set_color(static_cast<::itcast::MyColor>(val));
+        } else goto handle_unusual;
+        continue;
+      // .myinfo.Info info = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(mutable_info(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -316,6 +352,17 @@ bool Person::MergePartialFromCodedStream(
         break;
       }
 
+      // .myinfo.Info info = 6;
+      case 6: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
+               input, mutable_info()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -371,6 +418,12 @@ void Person::SerializeWithCachedSizes(
       5, this->color(), output);
   }
 
+  // .myinfo.Info info = 6;
+  if (this->has_info()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, HasBitSetters::info(this), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -413,6 +466,13 @@ void Person::SerializeWithCachedSizes(
       5, this->color(), target);
   }
 
+  // .myinfo.Info info = 6;
+  if (this->has_info()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        6, HasBitSetters::info(this), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -447,6 +507,13 @@ size_t Person::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->sex());
+  }
+
+  // .myinfo.Info info = 6;
+  if (this->has_info()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *info_);
   }
 
   // int32 id = 1;
@@ -501,6 +568,9 @@ void Person::MergeFrom(const Person& from) {
 
     sex_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.sex_);
   }
+  if (from.has_info()) {
+    mutable_info()->::myinfo::Info::MergeFrom(from.info());
+  }
   if (from.id() != 0) {
     set_id(from.id());
   }
@@ -540,6 +610,7 @@ void Person::InternalSwap(Person* other) {
   name_.InternalSwap(CastToBase(&other->name_));
   sex_.Swap(&other->sex_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(info_, other->info_);
   swap(id_, other->id_);
   swap(age_, other->age_);
   swap(color_, other->color_);

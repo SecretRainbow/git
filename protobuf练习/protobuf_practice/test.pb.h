@@ -33,6 +33,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "info.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_test_2eproto
@@ -232,6 +233,15 @@ class Person :
   std::string* release_sex();
   void set_allocated_sex(std::string* sex);
 
+  // .myinfo.Info info = 6;
+  bool has_info() const;
+  void clear_info();
+  static const int kInfoFieldNumber = 6;
+  const ::myinfo::Info& info() const;
+  ::myinfo::Info* release_info();
+  ::myinfo::Info* mutable_info();
+  void set_allocated_info(::myinfo::Info* info);
+
   // int32 id = 1;
   void clear_id();
   static const int kIdFieldNumber = 1;
@@ -257,6 +267,7 @@ class Person :
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sex_;
+  ::myinfo::Info* info_;
   ::PROTOBUF_NAMESPACE_ID::int32 id_;
   ::PROTOBUF_NAMESPACE_ID::int32 age_;
   int color_;
@@ -430,6 +441,51 @@ inline void Person::set_color(::itcast::MyColor value) {
   
   color_ = value;
   // @@protoc_insertion_point(field_set:itcast.Person.color)
+}
+
+// .myinfo.Info info = 6;
+inline bool Person::has_info() const {
+  return this != internal_default_instance() && info_ != nullptr;
+}
+inline const ::myinfo::Info& Person::info() const {
+  const ::myinfo::Info* p = info_;
+  // @@protoc_insertion_point(field_get:itcast.Person.info)
+  return p != nullptr ? *p : *reinterpret_cast<const ::myinfo::Info*>(
+      &::myinfo::_Info_default_instance_);
+}
+inline ::myinfo::Info* Person::release_info() {
+  // @@protoc_insertion_point(field_release:itcast.Person.info)
+  
+  ::myinfo::Info* temp = info_;
+  info_ = nullptr;
+  return temp;
+}
+inline ::myinfo::Info* Person::mutable_info() {
+  
+  if (info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::myinfo::Info>(GetArenaNoVirtual());
+    info_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:itcast.Person.info)
+  return info_;
+}
+inline void Person::set_allocated_info(::myinfo::Info* info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(info_);
+  }
+  if (info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, info, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  info_ = info;
+  // @@protoc_insertion_point(field_set_allocated:itcast.Person.info)
 }
 
 #ifdef __GNUC__
